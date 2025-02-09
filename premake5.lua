@@ -7,10 +7,23 @@ project "imgui-knobs"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+-- Assumes that imgui is in the same parent folder
+include "../imgui"
+
 	files
 	{
 		"imgui-knobs.h",
 		"imgui-knobs.cpp"
+	}
+
+	includedirs
+	{
+		"../imgui"
+	}
+
+	links
+	{
+		"imgui"
 	}
 
 	filter "system:windows"
